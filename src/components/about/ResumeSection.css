@@ -1,0 +1,10 @@
+.resume-section {
+  display: flex;
+  gap: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .resume-section {
+    flex-direction: column;
+  }
+}

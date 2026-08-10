@@ -1,0 +1,24 @@
+.resume-card {
+  min-width: 0;
+}
+
+.resume-card__title {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-section-title);
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+}
+
+.resume-card__body {
+  margin-top: var(--space-16);
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  line-height: var(--leading-body);
+  color: var(--text-h);
+}
+
+.resume-card__date {
+  font-weight: var(--fw-light);
+}

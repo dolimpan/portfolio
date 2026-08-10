@@ -1,0 +1,22 @@
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-header__title {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-page-title);
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+}
+
+.section-header__index {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-page-title);
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+  color: var(--text-h);
+}

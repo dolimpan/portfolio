@@ -1,0 +1,21 @@
+.profile-image {
+  padding: var(--space-16);
+  display: flex;
+}
+
+.profile-image__photo {
+  width: 100%;
+  aspect-ratio: 204 / 229;
+  object-fit: cover;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-media);
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .profile-image__photo {
+    width: 100%;
+    max-width: 14rem;
+    margin: 0 auto;
+  }
+}

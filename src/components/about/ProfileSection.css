@@ -1,0 +1,12 @@
+.profile-section {
+  display: grid;
+  grid-template-columns: minmax(0, 233fr) minmax(0, 506fr) minmax(0, 963fr);
+  align-items: stretch;
+  gap: var(--space-16);
+}
+
+@media (max-width: 1024px) {
+  .profile-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

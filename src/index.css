@@ -10,11 +10,59 @@
   --text-h: #231514;
   --text: #a29f98;
 
+  /* Content surfaces (document-style pages, e.g. About) */
+  --card-bg: #ffffff;
+  --card-border: #d9d9d9;
+  --tag-bg-secondary: #3b322c;
+
+  --radius-sm: 5px;
+  --radius-media: 16px;
+
   /* Fonts */
   --font-serif: 'Cormorant', serif;
   --font-nav: 'Cormorant Garamond', serif;
-  --font-sans-wide: 'Geist', system-ui, sans-serif;
+  --font-sans-wide: 'Geist', 'Noto Sans KR', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Type hierarchy */
+  --fs-display: clamp(2.75rem, 8vw, 6.5rem);
+  --fs-subtitle: clamp(1.1rem, 3vw, 2rem);
+  --fs-nav: clamp(1.15rem, 1.7vw, 1.6rem);
+  --fs-label: 1rem;
+  --fs-decorative: 0.95rem;
+
+  --fs-page-title: clamp(1.75rem, 3vw, 2rem);
+  --fs-section-title: clamp(1.5rem, 2.5vw, 2rem);
+  --fs-card-title: clamp(1.3rem, 2vw, 1.556rem);
+  --fs-eyebrow: 1.333rem;
+  --fs-body: 1.111rem;
+  --fs-caption: 0.889rem;
+  --fs-tag: 0.778rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+
+  /* Spacing scale (rem; name = approx. px at a 16px base) */
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+  --space-112: 7rem;
+  --space-128: 8rem;
 
   font: 18px/145% var(--font-sans-wide);
   color-scheme: light;
@@ -44,12 +92,57 @@ body {
 }
 
 h1,
-h2 {
-  font-family: var(--font-serif);
+h2,
+h3 {
   color: var(--text-h);
   margin: 0;
 }
 
 p {
   margin: 0;
+}
+
+/* Shared primitives for document-style pages (About, and future pages
+   like Projects/Contact that share the same card-and-rail layout). */
+
+.content-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .content-page {
+    padding: var(--space-24) var(--space-16);
+  }
+}
+
+.card {
+  background: var(--card-bg);
+  border: var(--panel-border-width) solid var(--card-border);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  padding: var(--space-24);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-tag);
+  line-height: var(--leading-body);
+  color: #fff;
+  padding: 0 var(--space-8);
+  border-radius: var(--radius-sm);
+}
+
+.tag--primary {
+  background: var(--text-h);
+}
+
+.tag--secondary {
+  background: var(--tag-bg-secondary);
 }

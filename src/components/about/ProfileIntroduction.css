@@ -1,0 +1,30 @@
+.profile-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-intro__name {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-section-title);
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+}
+
+.profile-intro__role {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  line-height: var(--leading-body);
+  color: var(--text-h);
+  margin-top: var(--space-8);
+}
+
+.profile-intro__bio {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  line-height: var(--leading-body);
+  color: var(--text-h);
+  margin-top: var(--space-16);
+}

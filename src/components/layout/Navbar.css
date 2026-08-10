@@ -11,15 +11,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(1.5rem, 3.5vw, 3rem);
+  gap: clamp(var(--space-24), 3.5vw, var(--space-48));
   margin: 0;
-  padding: 1.1rem 1.5rem;
+  padding: var(--space-16) var(--space-24);
 }
 
 .navbar__link {
   font-family: var(--font-nav);
-  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
-  font-weight: 400;
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-regular);
   color: var(--text);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -31,5 +31,5 @@
 
 .navbar__link--active {
   color: var(--text-h);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
 }

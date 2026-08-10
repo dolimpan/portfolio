@@ -1,18 +1,18 @@
 .hero-left__title {
   font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: clamp(2.75rem, 8vw, 6.5rem);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display);
   line-height: 0.95;
-  letter-spacing: 0.01em;
+  letter-spacing: var(--tracking-normal);
   color: var(--text-h);
-  margin: 0 0 clamp(1rem, 3vw, 2rem);
+  margin: 0 0 clamp(var(--space-16), 3vw, var(--space-32));
 }
 
 .hero-left__subtitle {
   font-family: var(--font-sans-wide);
-  font-weight: 500;
-  font-size: clamp(1.1rem, 3vw, 2rem);
-  letter-spacing: 0.11em;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-subtitle);
+  letter-spacing: var(--tracking-wider);
   color: var(--text-h);
   margin: 0;
 }
