@@ -9,8 +9,8 @@
 .project-section__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-16);
-  margin-top: var(--space-16);
+  gap: var(--space-8);
+  margin-top: var(--space-8);
 }
 
 @media (max-width: 1024px) {

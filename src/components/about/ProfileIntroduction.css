@@ -26,5 +26,5 @@
   font-size: var(--fs-body);
   line-height: var(--leading-body);
   color: var(--text-h);
-  margin-top: var(--space-16);
+  margin-top: var(--space-8);
 }
