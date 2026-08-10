@@ -1,3 +1,9 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
 .skills__title {
   font-family: var(--font-sans-wide);
   font-weight: var(--fw-bold);
@@ -7,27 +13,111 @@
 }
 
 .skills__categories {
+  flex: 1;
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: var(--space-16);
   margin-top: var(--space-8);
+  padding-top: 10px;
   overflow-x: auto;
 }
 
+/* 각 카테고리 */
 .skills__category {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
   flex-shrink: 0;
   padding-right: var(--space-16);
   border-right: 1px solid var(--card-border);
 }
 
+/* 마지막 카테고리는 구분선 제거 */
 .skills__category:last-child {
   border-right: none;
   padding-right: 0;
 }
+
+/*
+ * 카테고리 제목 영역을 동일한 높이로 고정
+ * → Languages / Backend / DevOps / Tools가 같은 위치
+ */
+.skills__category-name {
+  width: 100%;
+  height: 2.2rem;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin: 0 0 var(--space-8);
+
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-wider);
+  line-height: var(--leading-tight);
+  color: var(--text-h);
+
+  white-space: nowrap;
+}
+
+/* 아이콘 + 이름 영역 */
+.skills__items {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+/* 각각의 스킬 */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 2.8rem;
+  flex-shrink: 0;
+}
+
+/* 스킬 아이콘 */
+.skill-item__icon {
+  width: 2.8rem;
+  height: 2.8rem;
+
+  background: var(--card-border);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.skill-item__icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* 스킬 이름 */
+.skill-item__label {
+  font-family: var(--font-sans-wide);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-caption);
+  color: var(--text-h);
+
+  text-align: center;
+  line-height: var(--leading-tight);
+
+  white-space: pre-line;
+}
+
+
+/* =========================
+   Tablet
+   ========================= */
 
 @media (max-width: 1024px) {
   .skills__categories {
@@ -42,52 +132,17 @@
   }
 }
 
-.skills__category-name {
-  font-family: var(--font-sans-wide);
-  font-weight: var(--fw-regular);
-  font-size: var(--fs-eyebrow);
-  letter-spacing: var(--tracking-wider);
-  line-height: var(--leading-tight);
-  color: var(--text-h);
-  white-space: nowrap;
-}
 
-.skills__items {
-  display: flex;
-  gap: var(--space-8);
-}
+/* =========================
+   Mobile
+   ========================= */
 
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-8);
-  width: 2.8rem;
-}
+@media (max-width: 640px) {
+  .skills__categories {
+    gap: var(--space-8);
+  }
 
-.skill-item__icon {
-  width: 2.8rem;
-  height: 2.8rem;
-  background: var(--card-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.skill-item__icon img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-}
-
-.skill-item__label {
-  font-family: var(--font-sans-wide);
-  font-weight: var(--fw-light);
-  font-size: var(--fs-caption);
-  color: var(--text-h);
-  text-align: center;
-  line-height: var(--leading-tight);
-  white-space: pre-line;
+  .skills__category {
+    width: auto;
+  }
 }

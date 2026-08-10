@@ -1,7 +1,11 @@
 .section-header {
   display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 
 .section-header__title {

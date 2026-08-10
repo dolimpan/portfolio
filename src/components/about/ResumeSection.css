@@ -1,5 +1,6 @@
 .resume-section {
   display: flex;
+  flex: 1.2;
   gap: var(--space-16);
 }
 

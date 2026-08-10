@@ -1,5 +1,6 @@
 .profile-section {
   display: grid;
+  flex: 1.5;
   grid-template-columns: minmax(0, 233fr) minmax(0, 506fr) minmax(0, 963fr);
   align-items: stretch;
   gap: var(--space-16);

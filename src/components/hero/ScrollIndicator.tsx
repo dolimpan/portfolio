@@ -12,7 +12,6 @@ function ScrollIndicator() {
             >
                 <path d="M0 0 L14 0 L7 12 Z" fill="currentColor" />
             </svg>
-            <span className="scroll-indicator__label">SCROLL</span>
         </div>
     );
 }
