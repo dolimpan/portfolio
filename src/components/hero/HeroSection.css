@@ -1,0 +1,19 @@
+.hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2rem, 6vw, 6rem) clamp(1.5rem, 7vw, 8rem) clamp(4.5rem, 9vw, 7rem);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 3rem;
+  }
+}

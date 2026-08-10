@@ -1,0 +1,26 @@
+.border-frame {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.border-frame__rail {
+  flex: 0 0 var(--rail-width);
+  background: var(--panel-bg);
+  border-inline: var(--panel-border-width) solid var(--panel-border);
+  box-sizing: border-box;
+}
+
+.border-frame__content {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .border-frame__rail {
+    display: none;
+  }
+}

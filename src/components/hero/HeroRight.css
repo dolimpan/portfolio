@@ -1,0 +1,21 @@
+.hero-right__filler {
+  display: none;
+  font-family: var(--font-mono);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 0.9;
+  letter-spacing: 0.09em;
+  color: var(--text);
+  text-align: right;
+  max-width: 28rem;
+  max-height: 26rem;
+  overflow: hidden;
+  margin: 0;
+  user-select: none;
+}
+
+@media (min-width: 900px) {
+  .hero-right__filler {
+    display: block;
+  }
+}

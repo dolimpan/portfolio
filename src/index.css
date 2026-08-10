@@ -1,0 +1,55 @@
+:root {
+  /* Surfaces */
+  --bg: #faf8f4;
+  --panel-bg: #f3eeea;
+  --panel-border: #f3e1e5;
+  --panel-border-width: 3px;
+  --rail-width: 3.5rem;
+
+  /* Text */
+  --text-h: #231514;
+  --text: #a29f98;
+
+  /* Fonts */
+  --font-serif: 'Cormorant', serif;
+  --font-nav: 'Cormorant Garamond', serif;
+  --font-sans-wide: 'Geist', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  font: 18px/145% var(--font-sans-wide);
+  color-scheme: light;
+  color: var(--text-h);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+  color: var(--text-h);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
