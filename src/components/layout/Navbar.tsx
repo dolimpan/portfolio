@@ -9,6 +9,14 @@ const NAV_ITEMS = [
     { label: "Contact", path: "#contact" },
 ];
 
+function isNavItemActive(itemPath: string, currentPath: string) {
+    if (itemPath === currentPath) return true;
+    // "Projects" has no listing page of its own yet, but should still read as
+    // active while viewing any /projects/:slug detail page.
+    if (itemPath === "#projects") return currentPath.startsWith("/projects/");
+    return false;
+}
+
 function Navbar() {
     const { path, navigate } = useRoute();
 
@@ -27,7 +35,7 @@ function Navbar() {
                             href={item.path}
                             onClick={(event) => handleClick(event, item.path)}
                             className={
-                                item.path === path
+                                isNavItemActive(item.path, path)
                                     ? "navbar__link navbar__link--active"
                                     : "navbar__link"
                             }

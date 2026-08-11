@@ -19,8 +19,8 @@
   --radius-media: 16px;
 
   /* Fonts */
-  --font-serif: 'Cormorant', serif;
-  --font-nav: 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant', 'Noto Sans KR', serif;
+  --font-nav: 'Cormorant Garamond', 'Noto Sans KR', serif;
   --font-sans-wide: 'Geist', 'Noto Sans KR', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
@@ -38,6 +38,9 @@
   --fs-body: 1rem;
   --fs-caption: 0.8rem;
   --fs-tag: 0.7rem;
+  /* Restrained echo of Home's serif display headline, sized for a
+     per-project hero name rather than the full page-level hero. */
+  --fs-hero-title: clamp(1.75rem, 3.2vw, 2.5rem);
 
   --fw-light: 300;
   --fw-regular: 400;

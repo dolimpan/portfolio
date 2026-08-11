@@ -1,0 +1,25 @@
+.data-table {
+  display: grid;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  font-family: var(--font-sans-wide);
+}
+
+.data-table__cell {
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--text-h);
+  border-bottom: 1px solid var(--card-border);
+  overflow-wrap: break-word;
+}
+
+.data-table__cell--head {
+  font-weight: var(--fw-bold);
+  background: var(--panel-bg);
+}
+
+.data-table__cell--alt {
+  background: var(--bg);
+}

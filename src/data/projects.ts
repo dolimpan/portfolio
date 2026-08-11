@@ -4,6 +4,7 @@ export interface ProjectTag {
 }
 
 export interface Project {
+    slug: string;
     title: string;
     period: string;
     description: string;
@@ -13,6 +14,7 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        slug: "shotudy",
         title: "Shotudy",
         period: "25. 07 ~ 26. 03",
         description: "스크린샷 기반 AI 언어 학습 웹",
@@ -25,6 +27,7 @@ export const projects: Project[] = [
         ],
     },
     {
+        slug: "mansu",
         title: "만수무강",
         period: "24. 09 ~ 25. 02",
         description: "노인 건강 증진을 위한 Android 앱",
@@ -36,6 +39,7 @@ export const projects: Project[] = [
         ],
     },
     {
+        slug: "muhandongryeok",
         title: "무한동력",
         period: "24. 07",
         description: "2D 탑뷰 공포 어드벤처 게임",
@@ -46,6 +50,7 @@ export const projects: Project[] = [
         ],
     },
     {
+        slug: "kiwikok",
         title: "키위콕",
         period: "23. 12 ~ 24. 01",
         description: "익명 편지 전달 웹 서비스",
@@ -58,3 +63,7 @@ export const projects: Project[] = [
         ],
     },
 ];
+
+export function getProjectBySlug(slug: string) {
+    return projects.find((project) => project.slug === slug);
+}

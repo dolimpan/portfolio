@@ -7,7 +7,7 @@
 
 .profile-image__photo {
   width: auto;
-  height: 8.5rem;
+  height: 11rem;
   aspect-ratio: 204 / 229;
   object-fit: cover;
   border: 1px solid var(--panel-border);

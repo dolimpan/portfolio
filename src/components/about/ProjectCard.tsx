@@ -1,9 +1,19 @@
+import type { MouseEvent } from "react"
 import type { Project } from "../../data/projects"
+import { useRoute } from "../../router/routeContext"
 import "./ProjectCard.css"
 
-function ProjectCard({ title, period, description, icon, tags }: Project) {
+function ProjectCard({ slug, title, period, description, icon, tags }: Project) {
+    const { navigate } = useRoute();
+    const href = `/projects/${slug}`;
+
+    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        navigate(href);
+    };
+
     return (
-        <article className="project-card">
+        <a className="project-card" href={href} onClick={handleClick}>
             <div className="project-card__top">
                 <div className="project-card__icon">
                     {icon && <img src={icon} alt="" />}
@@ -22,7 +32,7 @@ function ProjectCard({ title, period, description, icon, tags }: Project) {
                     </li>
                 ))}
             </ul>
-        </article>
+        </a>
     );
 }
 

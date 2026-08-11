@@ -1,0 +1,48 @@
+.architecture-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-24);
+}
+
+.architecture-grid__item {
+  flex: 1 1 260px;
+  max-width: 420px;
+  margin: 0;
+  text-align: center;
+}
+
+.architecture-grid__item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.architecture-grid__item figcaption {
+  margin-top: var(--space-8);
+  font-size: var(--fs-caption);
+  color: var(--text);
+}
+
+.tech-image {
+  display: flex;
+  justify-content: center;
+}
+
+.tech-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.data-table-scroll {
+  overflow-x: auto;
+}
+
+.data-table-scroll .data-table {
+  min-width: 480px;
+}

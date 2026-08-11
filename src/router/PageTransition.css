@@ -1,0 +1,62 @@
+.page-transition {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* The entering page's slide-in transform briefly extends the scrollable
+   area beyond the viewport; clip it only while a transition is in flight
+   so the vertical scrollbar doesn't flash. Removed once settled so normal
+   (e.g. tall mobile) page scrolling is unaffected. */
+.page-transition--animating {
+  overflow: hidden;
+}
+
+.page-transition__page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.page-transition__page--entering {
+  animation: page-transition-enter 0.8s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.page-transition__page--leaving {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: page-transition-leave 0.8s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes page-transition-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-transition-leave {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition__page--entering,
+  .page-transition__page--leaving {
+    animation: none;
+  }
+}
