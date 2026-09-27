@@ -3,7 +3,7 @@ import type { ReactNode } from "react"
 import "./PageTransition.css"
 
 // Must match the CSS animation duration in PageTransition.css.
-const TRANSITION_DURATION_MS = 800;
+const TRANSITION_DURATION_MS = 850;
 
 interface PageEntry {
     key: string;
