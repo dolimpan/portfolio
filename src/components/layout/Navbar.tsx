@@ -5,15 +5,15 @@ import "./Navbar.css"
 const NAV_ITEMS = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
-    { label: "Projects", path: "#projects" },
-    { label: "Contact", path: "#contact" },
+    { label: "Projects", path: "/projects/shotudy" },
+    { label: "Contact", path: "/contact" },
 ];
 
 function isNavItemActive(itemPath: string, currentPath: string) {
     if (itemPath === currentPath) return true;
     // "Projects" has no listing page of its own yet, but should still read as
     // active while viewing any /projects/:slug detail page.
-    if (itemPath === "#projects") return currentPath.startsWith("/projects/");
+    if (itemPath.startsWith("/projects/")) return currentPath.startsWith("/projects/");
     return false;
 }
 
@@ -21,7 +21,6 @@ function Navbar() {
     const { path, navigate } = useRoute();
 
     const handleClick = (event: MouseEvent<HTMLAnchorElement>, to: string) => {
-        if (to.startsWith("#")) return;
         event.preventDefault();
         navigate(to);
     };

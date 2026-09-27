@@ -1,7 +1,7 @@
 .border-frame {
   display: flex;
-  flex: 1;
-  min-height: 0;
+  flex: 0 0 auto;
+  min-height: 100%;
 }
 
 .border-frame__rail {

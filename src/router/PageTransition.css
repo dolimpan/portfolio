@@ -4,24 +4,43 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+.page-transition--animating {
+  overflow-x: hidden;
 }
 
 .page-transition__page {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  min-height: 100%;
+}
+
+.contact-page__body {
+  flex: 1;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-16);
+  text-align: center;
 }
 
 .page-transition__page--entering {
-  animation: page-transition-enter 0.85s ease both;
+  animation: page-transition-enter 0.68s ease both;
 }
 
 .page-transition__page--leaving {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  animation: page-transition-leave 0.55s ease both;
+  transform: translateY(var(--leaving-scroll-offset, 0px));
+  animation: page-transition-leave 0.42s ease both;
 }
 
 /* A small editorial reveal gives the title and lead content their own beat
@@ -29,13 +48,13 @@
 .page-transition__page--entering .section-header,
 .page-transition__page--entering .hero-left,
 .page-transition__page--entering .project-hero {
-  animation: editorial-reveal 0.65s ease both;
-  animation-delay: 0.12s;
+  animation: editorial-reveal 0.52s ease both;
+  animation-delay: 0.06s;
 }
 
 .page-transition__page--entering .hero-right__filler {
-  animation: editorial-reveal 0.7s ease both;
-  animation-delay: 0.24s;
+  animation: editorial-reveal 0.56s ease both;
+  animation-delay: 0.1s;
 }
 
 .page-transition__page--entering .profile-section,
@@ -43,13 +62,13 @@
 .page-transition__page--entering .resume-section,
 .page-transition__page--entering .project-detail__grid,
 .page-transition__page--entering > .border-frame__content > .project-info-section {
-  animation: editorial-reveal 0.7s ease both;
-  animation-delay: 0.22s;
+  animation: editorial-reveal 0.56s ease both;
+  animation-delay: 0.1s;
 }
 
 .page-transition__page--entering .project-detail__grid > :nth-child(2) {
-  animation: editorial-reveal 0.7s ease both;
-  animation-delay: 0.3s;
+  animation: editorial-reveal 0.56s ease both;
+  animation-delay: 0.16s;
 }
 
 @keyframes page-transition-enter {
