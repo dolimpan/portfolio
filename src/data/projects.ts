@@ -50,11 +50,11 @@ export const projects: Project[] = [
         ],
     },
     {
-        slug: "kiwikok",
+        slug: "kiwicoke",
         title: "키위콕",
         period: "23. 12 ~ 24. 01",
         description: "익명 편지 전달 웹 서비스",
-        icon: "/images/projects/kiwikok.png",
+        icon: "/images/projects/kiwicoke.png",
         tags: [
             { label: "백엔드", variant: "role" },
             { label: "서버", variant: "role" },

@@ -93,12 +93,12 @@ export const projectDetails: ProjectDetailExtra[] = [
         myRole: ["게임"],
     },
     {
-        slug: "kiwikok",
+        slug: "kiwicoke",
         number: "04",
         heroImages: [
-            "/images/projects/kiwikok/hero-1.png",
-            "/images/projects/kiwikok/hero-2.png",
-            "/images/projects/kiwikok/hero-3.png",
+            "/images/projects/kiwicoke/hero-1.png",
+            "/images/projects/kiwicoke/hero-2.png",
+            "/images/projects/kiwicoke/hero-3.png",
         ],
         overview: {
             description:
@@ -133,14 +133,14 @@ export const projectDetails: ProjectDetailExtra[] = [
                 type: "architecture",
                 title: "시스템 아키텍쳐",
                 diagrams: [
-                    { image: "/images/projects/kiwikok/arch-service.png", caption: "서비스 아키텍쳐" },
-                    { image: "/images/projects/kiwikok/arch-deploy.png", caption: "배포 아키텍쳐" },
+                    { image: "/images/projects/kiwicoke/arch-service.png", caption: "서비스 아키텍쳐" },
+                    { image: "/images/projects/kiwicoke/arch-deploy.png", caption: "배포 아키텍쳐" },
                 ],
             },
             {
                 type: "erd",
                 title: "ERD",
-                image: "/images/projects/kiwikok/erd.png",
+                image: "/images/projects/kiwicoke/erd.png",
             },
             {
                 type: "api",
