@@ -3,7 +3,6 @@ import SectionHeader from "../components/about/SectionHeader"
 import ProfileSection from "../components/about/ProfileSection"
 import ProjectSection from "../components/about/ProjectSection"
 import ResumeSection from "../components/about/ResumeSection"
-import PageNavigation from "../components/about/PageNavigation"
 
 function About() {
     return (
@@ -13,7 +12,6 @@ function About() {
                 <ProfileSection />
                 <ProjectSection />
                 <ResumeSection />
-                <PageNavigation />
             </div>
         </BorderFrame>
     );

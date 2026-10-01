@@ -3,10 +3,10 @@
   font-family: var(--font-mono);
   font-weight: var(--fw-light);
   font-size: var(--fs-decorative);
-  line-height: 0.9;
+  line-height: 1.5;
   letter-spacing: var(--tracking-wider);
   color: var(--text);
-  text-align: right;
+  text-align: left;
   max-width: 28rem;
   max-height: 26rem;
   overflow: hidden;

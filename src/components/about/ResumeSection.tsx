@@ -6,9 +6,9 @@ function ResumeSection() {
         <div className="resume-section">
             <ResumeCard title="이력" grow={539}>
                 <p>
-                    홍익대학교 컴퓨터공학과 3학년 재학 (휴학)
+                    홍익대학교 컴퓨터공학과 3학년 휴학
                     <br />
-                    84학점 수료; 전체 3.99 / 전공 4.14
+                    84학점 이수; 전체 3.99 / 전공 4.14
                     <br />
                     육군 제 7보병사단 병장 만기 전역
                 </p>
@@ -30,7 +30,7 @@ function ResumeSection() {
                     <span className="resume-card__date">25.7–26.6</span>ㅣ육군 창업경진대회
                     창의상 수상 (Shotudy 서비스)
                     <br />
-                    국방 Pre Start-Up 캠프 최우수상 수상 (Shotudy 서비스)
+                    2026 pre-국방 Start-up 챌린지 최우수상 수상 (Shotudy 서비스)
                 </p>
             </ResumeCard>
         </div>

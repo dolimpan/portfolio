@@ -27,8 +27,8 @@ export const skillCategories: SkillCategory[] = [
         name: "DevOps",
         items: [
             { label: "Amazon\nEC2", icon: "/images/skills/ec2.png" },
-            { label: "Ngnix", icon: "/images/skills/nginx.png" },
-            { label: "Github\nActions", icon: "/images/skills/github-actions.png" },
+            { label: "Nginx", icon: "/images/skills/nginx.png" },
+            { label: "GitHub\nActions", icon: "/images/skills/github-actions.png" },
         ],
     },
     {

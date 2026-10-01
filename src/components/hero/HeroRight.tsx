@@ -1,14 +1,28 @@
 import "./HeroRight.css"
 
-const FILLER_TEXT = "lorem ipsum dolor sit amet consectetur adipiscing elit "
-    .repeat(40)
-    .trim();
+const CODE_SAMPLE = `const developer = {
+    name: "JAEMIN KU",
+    major: "Computer Engineering",
+    focus: ["Backend", "Server", "AI"],
+};
+
+while (1) {
+    learn();
+    build();
+    solve();
+}
+
+$ git status
+projects/
+experience/
+skills/
+contact/
+
+return 0;`;
 
 function HeroRight() {
     return (
-        <p className="hero-right__filler" aria-hidden="true">
-            {FILLER_TEXT}
-        </p>
+        <pre className="hero-right__filler">{CODE_SAMPLE}</pre>
     );
 }
 

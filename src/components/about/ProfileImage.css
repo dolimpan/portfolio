@@ -7,10 +7,9 @@
 
 .profile-image__photo {
   width: auto;
-  height: 11rem;
+  height: 12rem;
   aspect-ratio: 204 / 229;
-  object-fit: cover;
-  border: 1px solid var(--panel-border);
+  object-fit: contain;
   border-radius: var(--radius-media);
   display: block;
 }

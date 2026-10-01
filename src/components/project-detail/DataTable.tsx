@@ -13,7 +13,9 @@ interface DataTableProps<T> {
 }
 
 function DataTable<T extends object>({ columns, rows }: DataTableProps<T>) {
-    const gridTemplateColumns = columns.map((column) => column.width ?? "1fr").join(" ");
+    const gridTemplateColumns = columns
+        .map((column) => `minmax(0, ${column.width ?? "1fr"})`)
+        .join(" ");
 
     return (
         <div className="data-table" style={{ gridTemplateColumns }}>
@@ -21,6 +23,7 @@ function DataTable<T extends object>({ columns, rows }: DataTableProps<T>) {
                 <span
                     key={String(column.key)}
                     className="data-table__cell data-table__cell--head"
+                    data-column={String(column.key)}
                     style={{ textAlign: column.align ?? "left" }}
                 >
                     {column.label}
@@ -30,11 +33,8 @@ function DataTable<T extends object>({ columns, rows }: DataTableProps<T>) {
                 columns.map((column) => (
                     <span
                         key={`${rowIndex}-${String(column.key)}`}
-                        className={
-                            rowIndex % 2 === 1
-                                ? "data-table__cell data-table__cell--alt"
-                                : "data-table__cell"
-                        }
+                        className="data-table__cell"
+                        data-column={String(column.key)}
                         style={{ textAlign: column.align ?? "left" }}
                     >
                         {String(row[column.key])}

@@ -3,7 +3,10 @@ import "./AccordionList.css"
 
 export interface AccordionListItem {
     title: string;
-    detail: string;
+    detail?: string;
+    problem?: string;
+    solution?: string;
+    lesson?: string;
 }
 
 interface AccordionListProps {
@@ -48,7 +51,22 @@ function AccordionList({ items }: AccordionListProps) {
                             }
                         >
                             <div className="accordion-item__panel-inner">
-                                <p className="accordion-item__detail">{item.detail}</p>
+                                {item.problem && item.solution && item.lesson ? (
+                                    <div className="accordion-item__sections">
+                                        {[
+                                            { label: "문제", content: item.problem },
+                                            { label: "해결", content: item.solution },
+                                            { label: "배운 점", content: item.lesson },
+                                        ].map((section) => (
+                                            <div className="accordion-item__section" key={section.label}>
+                                                <h3 className="accordion-item__section-title">{section.label}</h3>
+                                                <p>{section.content}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="accordion-item__detail">{item.detail ?? ""}</p>
+                                )}
                             </div>
                         </div>
                     </div>

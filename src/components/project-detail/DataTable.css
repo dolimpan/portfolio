@@ -1,5 +1,7 @@
 .data-table {
   display: grid;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -13,6 +15,8 @@
   color: var(--text-h);
   border-bottom: 1px solid var(--card-border);
   overflow-wrap: break-word;
+  word-break: keep-all;
+  white-space: pre-line;
 }
 
 .data-table__cell--head {
@@ -20,6 +24,19 @@
   background: var(--panel-bg);
 }
 
-.data-table__cell--alt {
-  background: var(--bg);
+.data-table__cell:not(.data-table__cell--head)[data-column="status"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
 }
+
+.data-table-scroll--fit {
+  min-width: 0;
+}
+
+.data-table-scroll.data-table-scroll--fit .data-table {
+  min-width: 0;
+  width: 100%;
+}
+

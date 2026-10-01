@@ -1,5 +1,6 @@
 import type { MouseEvent } from "react"
 import { useRoute } from "../../router/routeContext"
+import { getProjectBySlug } from "../../data/projects"
 import "./Navbar.css"
 
 const NAV_ITEMS = [
@@ -10,10 +11,17 @@ const NAV_ITEMS = [
 ];
 
 function isNavItemActive(itemPath: string, currentPath: string) {
+    const projectPrefix = "/projects/";
+    const project = currentPath.startsWith(projectPrefix)
+        ? getProjectBySlug(currentPath.slice(projectPrefix.length))
+        : undefined;
+    const isKnownPath = currentPath === "/" || currentPath === "/about" || currentPath === "/contact" || Boolean(project);
+
+    if (itemPath === "/") return currentPath === "/" || !isKnownPath;
     if (itemPath === currentPath) return true;
     // "Projects" has no listing page of its own yet, but should still read as
     // active while viewing any /projects/:slug detail page.
-    if (itemPath.startsWith("/projects/")) return currentPath.startsWith("/projects/");
+    if (itemPath.startsWith(projectPrefix)) return Boolean(project);
     return false;
 }
 

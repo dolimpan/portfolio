@@ -5,11 +5,12 @@ interface ProjectInfoSectionProps {
     number: number;
     title: string;
     children: ReactNode;
+    className?: string;
 }
 
-function ProjectInfoSection({ number, title, children }: ProjectInfoSectionProps) {
+function ProjectInfoSection({ number, title, children, className }: ProjectInfoSectionProps) {
     return (
-        <section className="card project-info-section">
+        <section className={`card project-info-section${className ? ` ${className}` : ""}`}>
             <h2 className="project-info-section__title">
                 {number}. {title}
             </h2>

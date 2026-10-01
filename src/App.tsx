@@ -6,8 +6,9 @@ import { RouteProvider } from "./router/RouteProvider"
 import { useRoute } from "./router/routeContext"
 import PageTransition from "./router/PageTransition"
 import { useEffect, useRef } from "react"
-import { getProjectBySlug, projects } from "./data/projects"
+import { getProjectBySlug } from "./data/projects"
 import { getProjectDetailExtra } from "./data/projectDetails"
+import "./pages/Contact.css"
 
 const PROJECT_PATH_PREFIX = "/projects/";
 
@@ -38,12 +39,12 @@ function CurrentPage() {
     const lastNavigation = useRef(0);
 
     useEffect(() => {
-        const orderedPaths = ["/", "/about", ...projects.map((project) => `/projects/${project.slug}`), "/contact"];
-        let layoutReady = false;
-        let settleTimer = 0;
+        if (path !== "/") return;
         const scrollArea = document.querySelector<HTMLElement>(".page-transition");
         if (!scrollArea) return;
 
+        let layoutReady = false;
+        let settleTimer = 0;
         const settleLayout = () => {
             layoutReady = false;
             window.clearTimeout(settleTimer);
@@ -58,44 +59,37 @@ function CurrentPage() {
         resizeObserver.observe(scrollArea);
         const pageContent = scrollArea.querySelector<HTMLElement>(".page-transition__page--entering");
         if (pageContent) resizeObserver.observe(pageContent);
-        scrollArea.querySelectorAll("img").forEach((image) => image.addEventListener("load", settleLayout));
-        scrollArea.querySelectorAll("img").forEach((image) => image.addEventListener("error", settleLayout));
+        const images = Array.from(scrollArea.querySelectorAll("img"));
+        images.forEach((image) => image.addEventListener("load", settleLayout));
+        images.forEach((image) => image.addEventListener("error", settleLayout));
         settleLayout();
 
         let touchStartY: number | null = null;
-        let touchStartedAtTop = false;
         let touchStartedAtBottom = false;
 
-        const moveToAdjacentPage = (direction: number) => {
+        const moveToAbout = () => {
             if (Date.now() - lastNavigation.current < 900 || !layoutReady) return;
-            const currentIndex = orderedPaths.indexOf(path);
-            const targetIndex = currentIndex + direction;
-            if (currentIndex < 0 || targetIndex < 0 || targetIndex >= orderedPaths.length) return;
             lastNavigation.current = Date.now();
-            navigate(orderedPaths[targetIndex]);
+            navigate("/about");
         };
 
         const onWheel = (event: WheelEvent) => {
-            if (Math.abs(event.deltaY) < 18 || Date.now() - lastNavigation.current < 900 || !layoutReady) return;
-            const atTop = scrollArea.scrollTop <= 2;
+            if (event.deltaY < 18 || Date.now() - lastNavigation.current < 900 || !layoutReady) return;
             const atBottom = scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 2;
-            const direction = event.deltaY > 0 && atBottom ? 1 : event.deltaY < 0 && atTop ? -1 : 0;
-            if (direction === 0 || orderedPaths.indexOf(path) + direction < 0 || orderedPaths.indexOf(path) + direction >= orderedPaths.length) return;
+            if (!atBottom) return;
             event.preventDefault();
-            moveToAdjacentPage(direction);
+            moveToAbout();
         };
 
         const onTouchStart = (event: TouchEvent) => {
             touchStartY = event.touches[0]?.clientY ?? null;
-            touchStartedAtTop = scrollArea.scrollTop <= 2;
             touchStartedAtBottom = scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 2;
         };
 
         const onTouchEnd = (event: TouchEvent) => {
-            if (touchStartY === null || !layoutReady) return;
+            if (touchStartY === null) return;
             const delta = (event.changedTouches[0]?.clientY ?? touchStartY) - touchStartY;
-            if (delta < -48 && touchStartedAtBottom) moveToAdjacentPage(1);
-            else if (delta > 48 && touchStartedAtTop) moveToAdjacentPage(-1);
+            if (delta < -48 && touchStartedAtBottom) moveToAbout();
             touchStartY = null;
         };
 
@@ -108,8 +102,8 @@ function CurrentPage() {
             scrollArea.removeEventListener("touchend", onTouchEnd);
             resizeObserver.disconnect();
             window.clearTimeout(settleTimer);
-            scrollArea.querySelectorAll("img").forEach((image) => image.removeEventListener("load", settleLayout));
-            scrollArea.querySelectorAll("img").forEach((image) => image.removeEventListener("error", settleLayout));
+            images.forEach((image) => image.removeEventListener("load", settleLayout));
+            images.forEach((image) => image.removeEventListener("error", settleLayout));
         };
     }, [navigate, path]);
 
@@ -128,11 +122,26 @@ function Contact() {
             <main className="border-frame__content content-page contact-page">
                 <div className="card section-header">
                     <h1 className="section-header__title">Contact</h1>
-                    <span className="section-header__index">06</span>
+                    <span className="section-header__index">01</span>
                 </div>
                 <section className="card contact-page__body">
-                    <h2>함께 좋은 서비스를 만들어가고 싶습니다.</h2>
-                    <p>프로젝트나 협업에 관해 이야기 나누고 싶다면 편하게 연락해 주세요.</p>
+                    <div className="contact-page__intro">
+                        <h2>열정 있고 성실한 개발자 구재민입니다.</h2>
+                    </div>
+                    <dl className="contact-page__details">
+                        <div className="contact-page__item">
+                            <dt>Email</dt>
+                            <dd><a href="mailto:jmku2004@naver.com">jmku2004@naver.com</a></dd>
+                        </div>
+                        <div className="contact-page__item">
+                            <dt>Address</dt>
+                            <dd>경기도 수원시</dd>
+                        </div>
+                        <div className="contact-page__item">
+                            <dt>GitHub</dt>
+                            <dd><a href="https://github.com/dolimpan" target="_blank" rel="noreferrer">github.com/dolimpan ↗</a></dd>
+                        </div>
+                    </dl>
                 </section>
             </main>
             <span className="border-frame__rail" aria-hidden="true" />

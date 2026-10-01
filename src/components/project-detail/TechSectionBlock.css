@@ -1,29 +1,113 @@
 .architecture-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-24);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--space-16);
 }
 
 .architecture-grid__item {
-  flex: 1 1 260px;
-  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   margin: 0;
   text-align: center;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--card-bg);
 }
 
 .architecture-grid__item img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
+  max-height: 360px;
+  margin-inline: auto;
+  object-fit: contain;
   display: block;
 }
 
-.architecture-grid__item figcaption {
-  margin-top: var(--space-8);
+.architecture-grid__image-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.architecture-grid__image-button img {
+  transition: transform 180ms ease;
+}
+
+.architecture-grid__image-button:hover img,
+.architecture-grid__image-button:focus-visible img {
+  transform: scale(1.015);
+}
+
+.architecture-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: rgb(0 0 0 / 82%);
+}
+
+.architecture-lightbox__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 96vw;
+  max-height: 94vh;
+}
+
+.architecture-lightbox__content img {
+  display: block;
+  max-width: 96vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: white;
+}
+
+.architecture-lightbox__content p {
+  margin: 12px 0 0;
+  color: white;
   font-size: var(--fs-caption);
-  color: var(--text);
+}
+
+.architecture-lightbox__close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  padding: 0 8px;
+  border: 0;
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .architecture-lightbox {
+    padding: 16px;
+  }
+}
+
+.architecture-grid__item figcaption {
+  margin-top: auto;
+  padding: var(--space-8) var(--space-16);
+  border-top: 1px solid var(--card-border);
+  font-size: var(--fs-caption);
+  color: var(--text-h);
+  background: var(--panel-bg);
 }
 
 .tech-image {
@@ -34,9 +118,11 @@
 .tech-image img {
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
   display: block;
+}
+
+.tech-image__button {
+  max-width: 100%;
 }
 
 .data-table-scroll {
